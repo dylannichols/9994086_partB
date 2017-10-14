@@ -1,5 +1,5 @@
 /* This program converts between celsius and fahrenheit and vice versa. 
-Dylan Nichols version 1.0.0 - 2017 */
+Dylan Nichols version 1.1.2 - 2017 */
 
 // connect the html to javascript variables
 let temp = document.querySelector("#temp")
@@ -24,10 +24,6 @@ let convertTemp = (num, unit) => {
     output.value = result
 }
 
-let resetForm = () => {
-    error.innerHTML = ""
-}
-
 // on submit, check input and if it is valid call the conversion function with the apporpriate parameters 
 let submitForm = () => {
     error.innerHTML = ""
@@ -47,12 +43,14 @@ let submitForm = () => {
     }
 }
 
+// if user clicks submit, call the above function
 submit.addEventListener('click', (e) => {
-        submitForm();
-        e.preventDefault()
-    }) // if user clicks submit, call the above function
+    submitForm();
+    e.preventDefault()
+})
 
+// if user clicks reset, reset error text
 reset.addEventListener('click', (e) => {
-    resetForm()
+    error.innerHTML = ""
     e.preventDefault
 })
